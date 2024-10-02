@@ -4,7 +4,9 @@ module SCSSLint
     def report_lints
       return unless lints.any?
 
-      "#{lints.map { |lint| "#{location(lint)} #{type(lint)} #{message(lint)}" }.join("\n")}\n"
+      # "#{lints.map { |lint| "#{location(lint)} #{type(lint)} #{message(lint)}" }.join("\n")}\n"
+      # ::#{severity} file=#{lint.filename},line=#{lint.line}::#{github_escape(lint.message)}"
+      "#{lints.map { |lint| "::#{type(lint)} file=#{location(lint)},line=#{123}::#{message(lint)}\n"
     end
 
   private
@@ -18,7 +20,7 @@ module SCSSLint
     end
 
     def type(lint)
-      lint.error? ? log.red('[E]') : log.yellow('[W]')
+      lint.error? ? log.red('::error') : log.yellow('::warning')
     end
 
     def message(lint)

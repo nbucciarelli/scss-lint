@@ -6,7 +6,7 @@ module SCSSLint
 
       # "#{lints.map { |lint| "#{location(lint)} #{type(lint)} #{message(lint)}" }.join("\n")}\n"
       # ::#{severity} file=#{lint.filename},line=#{lint.line}::#{github_escape(lint.message)}"
-      "#{lints.map { |lint| "::#{type(lint)} file=#{location(lint)},line=#{123}::#{message(lint)}\n"
+      "#{lints.map { |lint| "::#{type(lint)} file=#{location(lint)},line=#{123}::#{message(lint)}" }.join("\n")}\n"
     end
 
   private

@@ -3,7 +3,7 @@ module SCSSLint
     def report_lints
       return unless lints.any?
 
-      "#{lints.map { |lint| "::error #{location(lint)}::#{message(lint)}" }.join("\n")}"
+      "#{lints.map { |lint| "::#{lint.severity} #{location(lint)}::#{message(lint)}" }.join("\n")}"
     end
 
   private
